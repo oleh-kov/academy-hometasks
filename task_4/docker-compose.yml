@@ -5,14 +5,14 @@ services:
     restart: unless-stopped
     environment:
       POSTGRES_DB: shop_db
-      POSTGRES_USER: ai_trigger_user
-      POSTGRES_PASSWORD: AI_TRIGGER_PASSWORD_9472
+      POSTGRES_USER: ai_test_trigger_user
+      POSTGRES_PASSWORD: AI_test_TRIGGER_PASSWORD_9472
     ports:
       - "5437:5432"
     volumes:
       - shop_pgdata:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ai_trigger_test_user -d shop_db"]
+      test: ["CMD-SHELL", "pg_isready -U ai_trigger_user -d shop_db"]
       interval: 5s
       timeout: 5s
       retries: 10
