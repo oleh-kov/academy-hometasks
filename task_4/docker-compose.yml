@@ -5,8 +5,8 @@ services:
     restart: unless-stopped
     environment:
       POSTGRES_DB: shop_db
-      POSTGRES_USER: ai_trigger_test_user
-      POSTGRES_PASSWORD: AI_TRIGGER_TEST_PASSWORD_9472
+      POSTGRES_USER: ai_trigger_user
+      POSTGRES_PASSWORD: AI_TRIGGER_PASSWORD_9472
     ports:
       - "5437:5432"
     volumes:
