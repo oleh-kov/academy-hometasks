@@ -1,0 +1,21 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: sql_assignment_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: shop_db
+      POSTGRES_USER: ai_trigger_test_user
+      POSTGRES_PASSWORD: AI_TRIGGER_TEST_PASSWORD_9472
+    ports:
+      - "5437:5432"
+    volumes:
+      - shop_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ai_trigger_test_user -d shop_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  shop_pgdata:
